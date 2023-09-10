@@ -135,8 +135,6 @@ public class Ordenamiento {
     //Metodo Shell
     public Integer[] ShellSort(Integer X[]){
         int salto,N,j,k;
-        int tintercambios=0,tcomparaciones=0;
-        long tiempoIni=System.nanoTime();
         N=X.length;
         salto=N/2;
         while(salto>0){
@@ -145,24 +143,15 @@ public class Ordenamiento {
                 j=i-salto;
                 while(j>=0){
                     k=j+salto;
-                    tcomparaciones++;
                     if(X[j]<=X[k])
                         j=0;
-                    else{
-                        tintercambios++;
+                    else
                         intercambio(X,j,k);
-                    }
                     j=j-salto;
                 }//end while                
             }//end for
             salto=salto/2;
-        }//end while     
-        long tiempoFin=System.nanoTime();
-        long tiempoEjecucion=tiempoFin-tiempoIni;
-        this.setnIntercambios(tintercambios);
-        this.setnComparaciones(tcomparaciones);
-        this.settEjecucion(tiempoEjecucion);
-        System.out.println("Tiempo de Ejecucion(ns):"+ tiempoEjecucion);        
+        }//end while        
         return X;
     }
     
@@ -173,12 +162,12 @@ public class Ordenamiento {
     }
     
     //Metodo QuickSort    
-    public Integer[] QuickSort(Integer[] X)
+    public Integer[] CallQuickSort(Integer[] X)
     {   Integer[] Y;
         Y=QuickSort(X, 0, X.length - 1);
         return Y;
     }
-    public Integer[] QuickSort(Integer[] X, int start, int end)
+    private Integer[] QuickSort(Integer[] X, int start, int end)
     {
         if(start<end){
             int pIndex=QuickSortPartition(X,start,end);
