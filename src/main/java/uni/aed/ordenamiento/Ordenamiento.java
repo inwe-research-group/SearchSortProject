@@ -9,7 +9,7 @@ import java.util.Date;
 public class Ordenamiento {
     int nIntercambios=0;
     int nComparaciones=0;
-    long tEjecucion=0;    
+    long tEjecucion=0;        
 
     public void setnIntercambios(int nIntercambios) {
         this.nIntercambios = nIntercambios;

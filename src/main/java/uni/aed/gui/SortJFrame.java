@@ -2,13 +2,15 @@ package uni.aed.gui;
 
 import java.util.Arrays;
 import javax.swing.DefaultListModel;
+import uni.aed.ordenamiento.Complejidad;
 import uni.aed.ordenamiento.Ordenamiento;
 
 public class SortJFrame extends javax.swing.JFrame {
     
     private final DefaultListModel modeloList1 = new DefaultListModel();
     private final DefaultListModel modeloList2 = new DefaultListModel();     
-
+    private final String CADENA_VACIA="";
+    private final long FACTOR_CONVERSION_NS_TO_MS=1000000;
     /**
      * Creates new form SortJFrame
      */
@@ -50,7 +52,7 @@ public class SortJFrame extends javax.swing.JFrame {
         BtnLimpiar = new javax.swing.JButton();
         BtnCerrar = new javax.swing.JButton();
         lblIntercambios = new javax.swing.JLabel();
-        lblCompraciones = new javax.swing.JLabel();
+        lblComparaciones = new javax.swing.JLabel();
         txtIntercambios = new javax.swing.JTextField();
         txtComparaciones = new javax.swing.JTextField();
         txtTiempoEjecucion = new javax.swing.JTextField();
@@ -59,6 +61,11 @@ public class SortJFrame extends javax.swing.JFrame {
         lblValor = new javax.swing.JLabel();
         lblTEjecucion = new javax.swing.JLabel();
         lblMsg = new javax.swing.JLabel();
+        lblComplejidad = new javax.swing.JLabel();
+        txtComplejidad = new javax.swing.JTextField();
+        lblFIntercambios = new javax.swing.JLabel();
+        lblFComparaciones = new javax.swing.JLabel();
+        lblMSTEjecucion = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Algoritmos Sort && Search");
@@ -179,7 +186,7 @@ public class SortJFrame extends javax.swing.JFrame {
 
         lblIntercambios.setText("#Intercambios:");
 
-        lblCompraciones.setText("#Comparaciones:");
+        lblComparaciones.setText("#Comparaciones:");
 
         txtIntercambios.setEditable(false);
 
@@ -196,6 +203,16 @@ public class SortJFrame extends javax.swing.JFrame {
         lblTEjecucion.setText("Tiempo Ejecucion (ns):");
 
         lblMsg.setText("Se generaron ...");
+
+        lblComplejidad.setText("Complejidad Asintótica:");
+
+        txtComplejidad.setEditable(false);
+
+        lblFIntercambios.setText(".");
+
+        lblFComparaciones.setText(".");
+
+        lblMSTEjecucion.setText(".");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -249,14 +266,23 @@ public class SortJFrame extends javax.swing.JFrame {
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblTEjecucion)
-                                    .addComponent(lblCompraciones, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblIntercambios, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(lblComparaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblIntercambios, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(lblComplejidad, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblTEjecucion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(txtIntercambios)
                                     .addComponent(txtComparaciones)
-                                    .addComponent(txtTiempoEjecucion, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(txtTiempoEjecucion, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)
+                                    .addComponent(txtComplejidad))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblFIntercambios, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(lblMSTEjecucion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
+                                .addComponent(lblFComparaciones, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -294,7 +320,7 @@ public class SortJFrame extends javax.swing.JFrame {
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblMsg)))
-                .addGap(6, 30, Short.MAX_VALUE)
+                .addGap(6, 27, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(BtnLimpiar)
@@ -302,16 +328,23 @@ public class SortJFrame extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblIntercambios)
-                            .addComponent(txtIntercambios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtIntercambios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblFIntercambios))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtComparaciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblCompraciones, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblComparaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblFComparaciones))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtTiempoEjecucion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblTEjecucion))
-                        .addGap(83, 83, 83)
+                            .addComponent(lblTEjecucion)
+                            .addComponent(lblMSTEjecucion))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblComplejidad)
+                            .addComponent(txtComplejidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(52, 52, 52)
                         .addComponent(BtnCerrar)
                         .addGap(110, 110, 110))))
         );
@@ -344,28 +377,48 @@ public class SortJFrame extends javax.swing.JFrame {
         switch(cbMetodo.getSelectedIndex()){
             case 0->{//burbuja
                 //Realizar el ordenamiento
-                o.burbuja(X);                                
+                o.burbuja(X); 
+                lblFComparaciones.setText(Complejidad.BURBUJA_NCOMPARACIONES);
+                lblFIntercambios.setText(Complejidad.BURBUJA_NINTERCAMBIOS);
+                txtComplejidad.setText(Complejidad.BURBUJA_COMPLEJIDAD_WORSTCASE);
             }
             case 1->{//insercion
                 o.insercion(X);                
+                lblFComparaciones.setText(Complejidad.INSERCION_NCOMPARACIONES_WORSTCASE);
+                lblFIntercambios.setText(Complejidad.INSERCION_NINTERCAMBIOS_WORSTCASE);
+                txtComplejidad.setText(Complejidad.INSERCION_COMPLEJIDAD_WORSTCASE);
             }
             case 2->{//insercionBinaria
                 o.insercionBinaria(X);                
+                lblFComparaciones.setText(Complejidad.INSERCIONBINARIA_NCOMPARACIONES_WORSTCASE);
+                lblFIntercambios.setText(Complejidad.INSERCIONBINARIA_NINTERCAMBIOS_WORSTCASE);
+                txtComplejidad.setText(Complejidad.INSERCIONBINARIA_COMPLEJIDAD_WORSTCASE);
             }
             case 3->{//seleccion4c
                 o.seleccion4c(X);                
+                lblFComparaciones.setText(Complejidad.SELECCION_NCOMPARACIONES_WORSTCASE);
+                lblFIntercambios.setText(Complejidad.SELECCION_NINTERCAMBIOS_WORSTCASE);
+                txtComplejidad.setText(Complejidad.SELECCION_COMPLEJIDAD_WORSTCASE);
             }
             case 4->{//shell
                 o.ShellSort(X);                
+                lblFComparaciones.setText(Complejidad.SHELL_NCOMPARACIONES_WORSTCASE);
+                lblFIntercambios.setText(Complejidad.SHELL_NINTERCAMBIOS_WORSTCASE);
+                txtComplejidad.setText(Complejidad.SHELL_COMPLEJIDAD_WORSTCASE);
             }
             case 5->{//Quicksort
                 o.CallQuickSort(X);                
+                lblFComparaciones.setText(Complejidad.QUICKSORT_NCOMPARACIONES);
+                lblFIntercambios.setText(Complejidad.QUICKSORT_NINTERCAMBIOS);
+                txtComplejidad.setText(Complejidad.QUICKSORT_COMPLEJIDAD_MIDLECASE);
             }
         }//end switch   
                
         txtComparaciones.setText(Integer.toString(o.getnComparaciones()));
         txtIntercambios.setText(Integer.toString(o.getnIntercambios()));
         txtTiempoEjecucion.setText(Long.toString(o.gettEjecucion()));
+        if (o.gettEjecucion()>0) 
+            lblMSTEjecucion.setText(Long.toString(o.gettEjecucion()/FACTOR_CONVERSION_NS_TO_MS)+ " (ms)");
         modeloList2.removeAllElements();
         for(Integer i: X)
             modeloList2.addElement(i);
@@ -373,21 +426,29 @@ public class SortJFrame extends javax.swing.JFrame {
     private static int random(int low,int high){
         return (int) Math.floor(Math.random()*(high-low+1)) + low;
     }
-    private void ClearAll(){
+    private void ClearAll(){        
         modeloList1.removeAllElements();    
         modeloList2.removeAllElements();
-        txtIntercambios.setText("");
-        txtComparaciones.setText("");
-        txtTiempoEjecucion.setText("");
-        txtValor.setText("");
+        txtIntercambios.setText(CADENA_VACIA);
+        txtComparaciones.setText(CADENA_VACIA);
+        txtTiempoEjecucion.setText(CADENA_VACIA);
+        txtValor.setText(CADENA_VACIA);
         jsIni1.setValue(0);
         jsFin1.setValue(0);
+        lblFComparaciones.setText(CADENA_VACIA);
+        lblFIntercambios.setText(CADENA_VACIA);
+        txtComplejidad.setText(CADENA_VACIA);
+        lblMSTEjecucion.setText(CADENA_VACIA);
     }
     private void ClearResult(){        
         modeloList2.removeAllElements();
-        txtIntercambios.setText("");
-        txtComparaciones.setText("");
-        txtTiempoEjecucion.setText("");
+        txtIntercambios.setText(CADENA_VACIA);
+        txtComparaciones.setText(CADENA_VACIA);
+        txtTiempoEjecucion.setText(CADENA_VACIA);
+        lblFComparaciones.setText(CADENA_VACIA);
+        lblFIntercambios.setText(CADENA_VACIA);
+        txtComplejidad.setText(CADENA_VACIA);
+        lblMSTEjecucion.setText(CADENA_VACIA);
     }
     private void BtnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnLimpiarActionPerformed
         // TODO add your handling code here:
@@ -524,8 +585,12 @@ public class SortJFrame extends javax.swing.JFrame {
     private javax.swing.JSpinner jsFin1;
     private javax.swing.JSpinner jsIni1;
     private javax.swing.JLabel lblCarga;
-    private javax.swing.JLabel lblCompraciones;
+    private javax.swing.JLabel lblComparaciones;
+    private javax.swing.JLabel lblComplejidad;
+    private javax.swing.JLabel lblFComparaciones;
+    private javax.swing.JLabel lblFIntercambios;
     private javax.swing.JLabel lblIntercambios;
+    private javax.swing.JLabel lblMSTEjecucion;
     private javax.swing.JLabel lblMetodo;
     private javax.swing.JLabel lblMsg;
     private javax.swing.JLabel lblTEjecucion;
@@ -533,6 +598,7 @@ public class SortJFrame extends javax.swing.JFrame {
     private javax.swing.JRadioButton rbDuplicados;
     private javax.swing.JRadioButton rbUnicos;
     private javax.swing.JTextField txtComparaciones;
+    private javax.swing.JTextField txtComplejidad;
     private javax.swing.JTextField txtIntercambios;
     private javax.swing.JTextField txtTiempoEjecucion;
     private javax.swing.JTextField txtValor;
