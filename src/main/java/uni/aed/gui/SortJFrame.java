@@ -82,7 +82,7 @@ public class SortJFrame extends javax.swing.JFrame {
             }
         });
 
-        cbMetodo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Burbuja", "Insercion", "Insercion Binaria", "Seleccion4c", "Shell", "QuickSort", "MergeSort" }));
+        cbMetodo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Burbuja", "Insercion", "Insercion Binaria", "Seleccion4c", "Shell", "QuickSort", "MergeSort", "HeapSort" }));
         cbMetodo.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cbMetodoItemStateChanged(evt);
@@ -373,7 +373,8 @@ public class SortJFrame extends javax.swing.JFrame {
         if (N<=1) return;                
         Integer[] X = Arrays.stream(modeloList1.toArray())
               .map(obj -> Integer.valueOf(obj.toString()) ).toArray(Integer[]::new);        
-        Ordenamiento o=new Ordenamiento();         
+        Ordenamiento o=new Ordenamiento(); 
+        Integer[] Y=null;        
         switch(cbMetodo.getSelectedIndex()){
             case 0->{//burbuja
                 //Realizar el ordenamiento
@@ -414,7 +415,15 @@ public class SortJFrame extends javax.swing.JFrame {
             }
             case 6->{//Mergesort
                 o.CallMergeSort(X);                                
+                lblFComparaciones.setText(Complejidad.MERGESORT_NCOMPARACIONES_WORSTCASE);
+                lblFIntercambios.setText(Complejidad.MERGESORT_NINTERCAMBIOS);
                 txtComplejidad.setText(Complejidad.MERGESORT_COMPLEJIDAD_WORSTCASE);
+            }
+            case 7->{//Heapsort         
+                Y=new Integer[N];                
+                Y=o.HeapSort(X);
+                lblFComparaciones.setText(Complejidad.HEAPSORT_NCOMPARACIONES_WORSTCASE);                
+                txtComplejidad.setText(Complejidad.HEAPSORT_COMPLEJIDAD_WORSTCASE);
             }
         }//end switch   
                
@@ -422,10 +431,14 @@ public class SortJFrame extends javax.swing.JFrame {
         txtIntercambios.setText(Integer.toString(o.getnIntercambios()));
         txtTiempoEjecucion.setText(Long.toString(o.gettEjecucion()));
         if (o.gettEjecucion()>0) 
-            lblMSTEjecucion.setText(Long.toString(o.gettEjecucion()/FACTOR_CONVERSION_NS_TO_MS)+ " (ms)");
+            lblMSTEjecucion.setText(Double.toString(o.gettEjecucion()/FACTOR_CONVERSION_NS_TO_MS)+ " (ms)");
         modeloList2.removeAllElements();
-        for(Integer i: X)
-            modeloList2.addElement(i);
+        if (cbMetodo.getSelectedIndex()==7)
+            for(Integer i: Y)
+                    modeloList2.addElement(i);
+        else
+            for(Integer i: X)
+                modeloList2.addElement(i);
     }//GEN-LAST:event_BtnOrdenarActionPerformed
     private static int random(int low,int high){
         return (int) Math.floor(Math.random()*(high-low+1)) + low;

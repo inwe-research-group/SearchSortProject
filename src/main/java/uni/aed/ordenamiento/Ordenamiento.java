@@ -256,5 +256,90 @@ public class Ordenamiento {
             k++;
         }}
     
-    //Metodo HeapSort
+    //Metodo de Ordenamiento HeapSort
+    public Integer[] HeapSort(Integer[] X)
+    { 
+        long tiempoIni=System.nanoTime();
+        Integer[] Y=new Integer[X.length];
+        HeapSortConstruct(X); //fase de construccion: construye el heap   
+        Y=HeapSortExtract(X); //fase de extraccion: extrae nodos raiz        
+        long tiempoFin=System.nanoTime();
+        long tiempoEjecucion=tiempoFin-tiempoIni;        
+        this.settEjecucion(tiempoEjecucion);
+        System.out.println("Tiempo de Ejecucion(ns):"+ tiempoEjecucion);   
+        return Y;
+    }     
+    private void HeapSortConstruct(Integer[] X)             
+    {
+        int     current, maxChildIndex;
+        boolean hecho;        
+        for (int i = (X.length-2) / 2; i >= 0; i--) {            
+            current = i;
+            hecho    = false;            
+            while ( !hecho ) {                
+                if ( 2*current+1 > X.length-1 ) {
+                    //nodo actual no tiene hijos, termina
+                    hecho = true;
+                }
+                else {
+                    //el nodo actual tiene al menos un hijo, obtenga el índice del hijo más grande
+                    maxChildIndex = HeapSortMaxChild(X,current, X.length-1 );                    
+                    if ( X[current] < X[maxChildIndex] ) {                        
+                        intercambio( X,current, maxChildIndex );
+                        current = maxChildIndex;
+                    }
+                    else { //la restricción de la relación de valor se cumple, terminar                        
+                        hecho = true;
+                    }
+                }
+            }
+        }
+    }
+    
+    private Integer[] HeapSortExtract(Integer[] X)
+    {
+        int     current, maxChildIndex;
+        boolean hecho;
+        Integer[] Y= new Integer[X.length];//sortedList                
+        for (int i = X.length-1; i >= 0; i--) {            
+            //remover data del nodo raiz
+            Y[i] = X[ 0 ];            
+            //mover el ultimo nodo a la raiz
+            X[ 0 ] = X[i];            
+            //reconstruir
+            current = 0;
+            hecho    = false;            
+            while ( !hecho ) {                
+                if ( 2*current+1 > i )
+                    //si actual nodo no tiene hijos, deternerse
+                    hecho = true;                
+                else {
+                    //si nodo actual tiene al menos un hijo, obtener el indice del hijo mas grande
+                    maxChildIndex = HeapSortMaxChild(X,current, i );                    
+                    if ( X[current] < X[maxChildIndex] ) {                        
+                        intercambio( X,current, maxChildIndex );
+                        current = maxChildIndex;
+                    }
+                    else  //la restricción de la relación de valor se cumple, terminar   
+                        hecho = true;                    
+                }
+            }            
+        }
+        return Y;
+    }
+    
+     private int HeapSortMaxChild(Integer[] X,int loc, int end )
+    {   //Precondition: nodo de la ubicacion tiene al menos un hijo, //Iz=leftChildIndex,Der=rightChildIndex
+        int result, Izq,Der;        
+        Der = 2*loc + 2;
+        Izq  = 2*loc + 1;        
+        if ( Der <= end &&
+             X[Izq] < X[Der]) {
+            result = Der;
+        }
+        else {
+            result = Izq;
+        }       
+        return result;
+    }    
 }
