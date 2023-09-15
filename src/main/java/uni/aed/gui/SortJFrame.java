@@ -82,7 +82,7 @@ public class SortJFrame extends javax.swing.JFrame {
             }
         });
 
-        cbMetodo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Burbuja", "Insercion", "Insercion Binaria", "Seleccion4c", "Shell", "QuickSort" }));
+        cbMetodo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Burbuja", "Insercion", "Insercion Binaria", "Seleccion4c", "Shell", "QuickSort", "MergeSort" }));
         cbMetodo.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cbMetodoItemStateChanged(evt);
@@ -410,7 +410,11 @@ public class SortJFrame extends javax.swing.JFrame {
                 o.CallQuickSort(X);                
                 lblFComparaciones.setText(Complejidad.QUICKSORT_NCOMPARACIONES);
                 lblFIntercambios.setText(Complejidad.QUICKSORT_NINTERCAMBIOS);
-                txtComplejidad.setText(Complejidad.QUICKSORT_COMPLEJIDAD_MIDLECASE);
+                txtComplejidad.setText(Complejidad.QUICKSORT_COMPLEJIDAD_MIDLECASE);            
+            }
+            case 6->{//Mergesort
+                o.CallMergeSort(X);                                
+                txtComplejidad.setText(Complejidad.MERGESORT_COMPLEJIDAD_WORSTCASE);
             }
         }//end switch   
                

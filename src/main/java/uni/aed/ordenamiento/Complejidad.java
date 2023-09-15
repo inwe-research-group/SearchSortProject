@@ -26,6 +26,7 @@ public class Complejidad {
     public static final String QUICKSORT_COMPLEJIDAD_WORSTCASE = "O(n^2)";//rar vez se presenta,complejidad cuadratica
     public static final String QUICKSORT_COMPLEJIDAD_BESTCASE = "O(n * log(n))";//complejidad linealitmico
     public static final String QUICKSORT_COMPLEJIDAD_MIDLECASE = "O(n * log(n))";//complejidad linealitmico
+    public static final String MERGESORT_COMPLEJIDAD_WORSTCASE = "O(nlgn)";
     
      
 }
