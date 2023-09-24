@@ -6,7 +6,6 @@
     </Component>
   </NonVisualComponents>
   <Properties>
-    <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="title" type="java.lang.String" value="Algoritmos Sort &amp;&amp; Search"/>
   </Properties>
   <SyntheticProperties>
@@ -28,91 +27,22 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="464" max="-2" attributes="0"/>
-              <Component id="BtnCerrar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+          <Group type="102" attributes="0">
+              <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jPanel2" max="32767" attributes="0"/>
+                  <Component id="jPanel1" max="32767" attributes="0"/>
+              </Group>
           </Group>
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jPanel6" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
-                              <Component id="rbUnicos" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="rbDuplicados" min="-2" pref="146" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                              <Component id="txtValor" min="-2" pref="158" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jpIntervalo" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="lblValor" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lblCarga" min="-2" pref="167" max="-2" attributes="0"/>
-                          <Component id="lblMetodo" min="-2" pref="179" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="cbCarga" max="32767" attributes="0"/>
-                          <Component id="cbMetodo" min="-2" pref="239" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="lblMsg" min="-2" pref="184" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane1" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-                          <Component id="BtnLimpiar" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="BtnOrdenar" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
-                              <Component id="jScrollPane2" min="-2" pref="93" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblComparaciones" min="-2" pref="159" max="-2" attributes="0"/>
-                                  <Component id="lblIntercambios" min="-2" pref="141" max="-2" attributes="0"/>
-                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="lblComplejidad" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="lblTEjecucion" alignment="0" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="txtIntercambios" max="32767" attributes="0"/>
-                                  <Component id="txtComparaciones" max="32767" attributes="0"/>
-                                  <Component id="txtTiempoEjecucion" pref="87" max="32767" attributes="0"/>
-                                  <Component id="txtComplejidad" alignment="0" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lblFIntercambios" min="-2" pref="108" max="-2" attributes="0"/>
-                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="lblMSTEjecucion" alignment="0" pref="97" max="32767" attributes="0"/>
-                              <Component id="lblFComparaciones" alignment="0" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jpIntervalo" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -122,149 +52,280 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblCarga" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="cbCarga" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
+              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="cbMetodo" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblMetodo" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jPanel4" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="jpIntervalo" alignment="1" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="rbUnicos" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="rbDuplicados" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-              <Component id="lblValor" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="jpIntervalo" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="txtValor" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jScrollPane2" alignment="0" min="-2" pref="169" max="-2" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                              <Component id="BtnOrdenar" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="jScrollPane1" alignment="0" min="-2" pref="176" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="lblMsg" min="-2" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-              <EmptySpace min="6" pref="27" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="BtnLimpiar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="263" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblIntercambios" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtIntercambios" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblFIntercambios" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtComparaciones" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblComparaciones" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
-                          <Component id="lblFComparaciones" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtTiempoEjecucion" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblTEjecucion" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblMSTEjecucion" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblComplejidad" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtComplejidad" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
-                      <Component id="BtnCerrar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="110" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
+              <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JComboBox" name="cbCarga">
+    <Container class="javax.swing.JPanel" name="jPanel1">
       <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="2">
-            <StringItem index="0" value="Manual"/>
-            <StringItem index="1" value="Aleatoria"/>
-          </StringArray>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+            <TitledBorder title="Criterios"/>
+          </Border>
+        </Property>
+        <Property name="name" type="java.lang.String" value="Criterios" noResource="true"/>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="rbUnicos" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="rbDuplicados" min="-2" pref="146" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="250" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="lblCarga" min="-2" pref="167" max="-2" attributes="0"/>
+                      <Component id="lblMetodo" min="-2" pref="179" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="cbCarga" max="32767" attributes="0"/>
+                      <Component id="cbMetodo" min="-2" pref="239" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblCarga" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cbCarga" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="cbMetodo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblMetodo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="rbUnicos" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="rbDuplicados" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JComboBox" name="cbCarga">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="2">
+                <StringItem index="0" value="Manual"/>
+                <StringItem index="1" value="Aleatoria"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="cbCargaItemStateChanged"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbCargaActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="cbMetodo">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="8">
+                <StringItem index="0" value="Burbuja"/>
+                <StringItem index="1" value="Insercion"/>
+                <StringItem index="2" value="Insercion Binaria"/>
+                <StringItem index="3" value="Seleccion4c"/>
+                <StringItem index="4" value="Shell"/>
+                <StringItem index="5" value="QuickSort"/>
+                <StringItem index="6" value="MergeSort"/>
+                <StringItem index="7" value="HeapSort"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="cbMetodoItemStateChanged"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbMetodoActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblMetodo">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Metodo Ordenamiento:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblCarga">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Tipo de Carga:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JRadioButton" name="rbDuplicados">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Permite Duplicados"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rbDuplicadosActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JRadioButton" name="rbUnicos">
+          <Properties>
+            <Property name="selected" type="boolean" value="true"/>
+            <Property name="text" type="java.lang.String" value="Valores Unicos"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rbUnicosActionPerformed"/>
+          </Events>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="jPanel2">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+            <EtchetBorder/>
+          </Border>
         </Property>
       </Properties>
-      <Events>
-        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="cbCargaItemStateChanged"/>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbCargaActionPerformed"/>
-      </Events>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-      </AuxValues>
-    </Component>
-    <Component class="javax.swing.JComboBox" name="cbMetodo">
-      <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="8">
-            <StringItem index="0" value="Burbuja"/>
-            <StringItem index="1" value="Insercion"/>
-            <StringItem index="2" value="Insercion Binaria"/>
-            <StringItem index="3" value="Seleccion4c"/>
-            <StringItem index="4" value="Shell"/>
-            <StringItem index="5" value="QuickSort"/>
-            <StringItem index="6" value="MergeSort"/>
-            <StringItem index="7" value="HeapSort"/>
-          </StringArray>
-        </Property>
-      </Properties>
-      <Events>
-        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="cbMetodoItemStateChanged"/>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbMetodoActionPerformed"/>
-      </Events>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-      </AuxValues>
-    </Component>
-    <Component class="javax.swing.JRadioButton" name="rbUnicos">
-      <Properties>
-        <Property name="selected" type="boolean" value="true"/>
-        <Property name="text" type="java.lang.String" value="Valores Unicos"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rbUnicosActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JRadioButton" name="rbDuplicados">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Permite Duplicados"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rbDuplicadosActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtValor">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtValorActionPerformed"/>
-        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtValorKeyTyped"/>
-      </Events>
-    </Component>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+                  <Component id="jScrollPane1" min="-2" pref="100" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="BtnOrdenar" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+                  <Component id="jScrollPane2" min="-2" pref="93" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jScrollPane2" alignment="0" min="-2" pref="169" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                          <Component id="BtnOrdenar" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="jScrollPane1" alignment="0" min="-2" pref="176" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="18" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+          <AuxValues>
+            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+          </AuxValues>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JList" name="ListaInicial">
+              <Properties>
+                <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
+                  <StringArray count="0"/>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Component class="javax.swing.JButton" name="BtnOrdenar">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Ordenar"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnOrdenarActionPerformed"/>
+          </Events>
+        </Component>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+          <AuxValues>
+            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+          </AuxValues>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JList" name="ListaOrdenada">
+              <Properties>
+                <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
+                  <StringArray count="0"/>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+          </SubComponents>
+        </Container>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="jPanel4">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="txtValor" min="-2" pref="158" max="-2" attributes="0"/>
+                      <Component id="lblValor" alignment="0" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="12" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="lblValor" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="txtValor" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JTextField" name="txtValor">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtValorActionPerformed"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtValorKeyTyped"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblValor">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Ingrese los Valores a Ordenar:"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
     <Container class="javax.swing.JPanel" name="jpIntervalo">
 
       <Layout>
@@ -273,13 +334,14 @@
               <Group type="102" alignment="0" attributes="0">
                   <Component id="jLabel2" min="-2" pref="25" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jsIni1" min="-2" pref="115" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jsIni1" min="-2" pref="82" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jLabel3" min="-2" pref="25" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jsFin1" pref="111" max="32767" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="jsFin1" min="-2" pref="92" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                   <Component id="BtnGenerar" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -324,142 +386,181 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
-      <AuxValues>
-        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-      </AuxValues>
+    <Container class="javax.swing.JPanel" name="jPanel6">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+            <EtchetBorder/>
+          </Border>
+        </Property>
+      </Properties>
 
-      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="lblMsg" alignment="0" min="-2" pref="184" max="-2" attributes="0"/>
+                      <Component id="BtnLimpiar" alignment="0" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblComparaciones" alignment="0" min="-2" pref="159" max="-2" attributes="0"/>
+                              <Component id="lblIntercambios" alignment="0" min="-2" pref="141" max="-2" attributes="0"/>
+                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="lblComplejidad" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="lblTEjecucion" alignment="0" min="-2" pref="127" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="txtIntercambios" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtComparaciones" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtTiempoEjecucion" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtComplejidad" alignment="0" min="-2" pref="87" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblFIntercambios" alignment="0" min="-2" pref="108" max="-2" attributes="0"/>
+                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="lblMSTEjecucion" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="lblFComparaciones" alignment="0" min="-2" pref="97" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace min="-2" pref="314" max="-2" attributes="0"/>
+                          <Component id="BtnCerrar" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace pref="66" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblIntercambios" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtIntercambios" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblFIntercambios" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="txtComparaciones" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblComparaciones" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
+                              <Component id="lblFComparaciones" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="txtTiempoEjecucion" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblTEjecucion" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblMSTEjecucion" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblComplejidad" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtComplejidad" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                          <Component id="BtnCerrar" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="lblMsg" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="BtnLimpiar" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
       <SubComponents>
-        <Component class="javax.swing.JList" name="ListaInicial">
+        <Component class="javax.swing.JLabel" name="lblMsg">
           <Properties>
-            <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-              <StringArray count="0"/>
-            </Property>
+            <Property name="text" type="java.lang.String" value="Se generaron ..."/>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JButton" name="BtnLimpiar">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Limpiar"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnLimpiarActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblIntercambios">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="#Intercambios:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblComparaciones">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="#Comparaciones:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblTEjecucion">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Tiempo Ejecucion (ns):"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblComplejidad">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Complejidad Asint&#xf3;tica:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtComplejidad">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtTiempoEjecucion">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtComparaciones">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtIntercambios">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblFIntercambios">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="."/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblFComparaciones">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="."/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblMSTEjecucion">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="."/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="BtnCerrar">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Cerrar"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnCerrarActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JScrollPane" name="jScrollPane2">
-      <AuxValues>
-        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-      </AuxValues>
-
-      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-      <SubComponents>
-        <Component class="javax.swing.JList" name="ListaOrdenada">
-          <Properties>
-            <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-              <StringArray count="0"/>
-            </Property>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-          </AuxValues>
-        </Component>
-      </SubComponents>
-    </Container>
-    <Component class="javax.swing.JButton" name="BtnOrdenar">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Ordenar"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnOrdenarActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="BtnLimpiar">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Limpiar"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnLimpiarActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="BtnCerrar">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Cerrar"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnCerrarActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblIntercambios">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="#Intercambios:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblComparaciones">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="#Comparaciones:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtIntercambios">
-      <Properties>
-        <Property name="editable" type="boolean" value="false"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtComparaciones">
-      <Properties>
-        <Property name="editable" type="boolean" value="false"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtTiempoEjecucion">
-      <Properties>
-        <Property name="editable" type="boolean" value="false"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblCarga">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Tipo de Carga:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblMetodo">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Metodo Ordenamiento:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblValor">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Ingrese los Valores a Ordenar:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblTEjecucion">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Tiempo Ejecucion (ns):"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblMsg">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Se generaron ..."/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblComplejidad">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Complejidad Asint&#xf3;tica:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtComplejidad">
-      <Properties>
-        <Property name="editable" type="boolean" value="false"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblFIntercambios">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="."/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblFComparaciones">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="."/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblMSTEjecucion">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="."/>
-      </Properties>
-    </Component>
   </SubComponents>
 </Form>
