@@ -92,7 +92,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
     private void mDataSimpleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mDataSimpleActionPerformed
         // TODO add your handling code here:
-        SortJFrame v1=new SortJFrame();
+        FrmSortDataSimple v1=new FrmSortDataSimple();
         //FrmDirectorio v1=new FrmDirectorio();        
         v1.setVisible(true);
     }//GEN-LAST:event_mDataSimpleActionPerformed

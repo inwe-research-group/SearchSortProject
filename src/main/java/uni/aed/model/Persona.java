@@ -3,7 +3,7 @@ package uni.aed.model;
  *
  * @author hp
  */
-public class Persona {
+public class Persona implements Comparable{
     
     public static final int NAME = 0;
     public static final int AGE = 1;    
@@ -15,7 +15,7 @@ public class Persona {
     private int     age;
     private char    gender;
     static {
-       compareAttribute = NAME;
+       compareAttribute = NAME;       
     }
     public Persona() {
         this("No Ingresado", 0, 'U');
@@ -84,8 +84,13 @@ public class Persona {
         }
 
         return comparisonResult;
-    }    
+    }        
     public int compareTo( Persona persona ) {
         return compareTo(persona, compareAttribute);
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        return compareTo((Persona)o, compareAttribute);
     }
 }

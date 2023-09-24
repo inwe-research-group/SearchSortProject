@@ -61,6 +61,11 @@ private Comparator getComparator(int attribute) {
     return comp;
 }
 
+    @Override
+    public Object[] sort1(int attribute) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    
 //Clase interna para comparar Edad
 class AgeComparator implements Comparator {
 

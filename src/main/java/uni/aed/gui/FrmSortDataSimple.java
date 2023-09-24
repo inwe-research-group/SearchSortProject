@@ -4,8 +4,9 @@ import java.util.Arrays;
 import javax.swing.DefaultListModel;
 import uni.aed.ordenamiento.Complejidad;
 import uni.aed.ordenamiento.Ordenamiento;
+import uni.aed.ordenamiento.SortObject;
 
-public class SortJFrame extends javax.swing.JFrame {
+public class FrmSortDataSimple extends javax.swing.JFrame {
     
     private final DefaultListModel modeloList1 = new DefaultListModel();
     private final DefaultListModel modeloList2 = new DefaultListModel();     
@@ -14,7 +15,7 @@ public class SortJFrame extends javax.swing.JFrame {
     /**
      * Creates new form SortJFrame
      */
-    public SortJFrame() {
+    public FrmSortDataSimple() {
         initComponents();
         ListaInicial.setModel(modeloList1);
         ListaOrdenada.setModel(modeloList2);
@@ -440,7 +441,8 @@ public class SortJFrame extends javax.swing.JFrame {
         Integer[] X = Arrays.stream(modeloList1.toArray())
               .map(obj -> Integer.valueOf(obj.toString()) ).toArray(Integer[]::new);        
         Ordenamiento o=new Ordenamiento(); 
-        Integer[] Y=null;        
+        SortObject oo=new SortObject();
+        Object[] Y=null;        
         switch(cbMetodo.getSelectedIndex()){
             case 0->{//burbuja
                 //Realizar el ordenamiento
@@ -485,9 +487,8 @@ public class SortJFrame extends javax.swing.JFrame {
                 lblFIntercambios.setText(Complejidad.MERGESORT_NINTERCAMBIOS);
                 txtComplejidad.setText(Complejidad.MERGESORT_COMPLEJIDAD_WORSTCASE);
             }
-            case 7->{//Heapsort         
-                Y=new Integer[N];                
-                Y=o.HeapSort(X);
+            case 7->{//Heapsort                         
+                Y=oo.HeapSort(X);
                 lblFComparaciones.setText(Complejidad.HEAPSORT_NCOMPARACIONES_WORSTCASE);                
                 txtComplejidad.setText(Complejidad.HEAPSORT_COMPLEJIDAD_WORSTCASE);
             }
@@ -500,7 +501,7 @@ public class SortJFrame extends javax.swing.JFrame {
             lblMSTEjecucion.setText(Double.toString(o.gettEjecucion()/FACTOR_CONVERSION_NS_TO_MS)+ " (ms)");
         modeloList2.removeAllElements();
         if (cbMetodo.getSelectedIndex()==7)
-            for(Integer i: Y)
+            for(Object i: Y)
                     modeloList2.addElement(i);
         else
             for(Integer i: X)
@@ -631,20 +632,21 @@ public class SortJFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SortJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmSortDataSimple.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SortJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmSortDataSimple.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SortJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmSortDataSimple.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SortJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmSortDataSimple.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SortJFrame().setVisible(true);
+                new FrmSortDataSimple().setVisible(true);
             }
         });
     }

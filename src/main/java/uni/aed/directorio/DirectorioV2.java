@@ -110,6 +110,11 @@ public class DirectorioV2 implements Directorio{
         }
         return comp;
     }   
+
+    @Override
+    public Object[] sort1(int attribute) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }   
    
 }
 

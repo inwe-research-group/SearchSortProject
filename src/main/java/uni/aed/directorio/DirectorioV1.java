@@ -1,6 +1,7 @@
 package uni.aed.directorio;
 
 import uni.aed.model.Persona;
+import uni.aed.ordenamiento.SortObject;
 import uni.aed.ordenamiento.SortObjectPerson;
 
 public class DirectorioV1 implements Directorio{
@@ -143,5 +144,22 @@ public class DirectorioV1 implements Directorio{
             loc = NOT_FOUND;
         }
         return loc;
+    }   
+
+    @Override
+    public Object[] sort1(int attribute) {
+         if (!(attribute == Persona.NAME || attribute == Persona.AGE) ) {
+            throw new IllegalArgumentException( );
+        }  
+        Object[ ] sortedList = new Persona[ count ];                    
+        //copiamos las referencias a la lista ordenada
+        entry[0].setCompareAttribute(attribute);
+        for (int i = 0; i < count; i++) {
+            sortedList[i] = entry[i];
+        }
+        SortObject o=new SortObject();                 
+        sortedList=o.HeapSort(sortedList);
+        
+        return sortedList;
     }
 }
