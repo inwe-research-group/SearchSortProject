@@ -24,7 +24,7 @@ public class FrmDirectorio extends javax.swing.JFrame {
      */
     private final DefaultListModel modeloList1 = new DefaultListModel();
     private final DefaultListModel modeloList2 = new DefaultListModel();     
-    private final String CADENA_VACIA="";    
+    private final String CADENA_VACIA="";        
     private Directorio ab;
     
     public FrmDirectorio() {
@@ -216,7 +216,7 @@ public class FrmDirectorio extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnRegistrar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -224,7 +224,7 @@ public class FrmDirectorio extends javax.swing.JFrame {
                 .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(12, 12, 12))
         );
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Directorio"));
@@ -348,6 +348,7 @@ public class FrmDirectorio extends javax.swing.JFrame {
         rbSearchBinaria.setText("Binaria");
 
         bgSearchAlgoritmos.add(rbSearchLineal);
+        rbSearchLineal.setSelected(true);
         rbSearchLineal.setText("Lineal");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
@@ -521,11 +522,68 @@ public class FrmDirectorio extends javax.swing.JFrame {
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
+        ListaInicial.clearSelection();  
+        ListaOrdenada.clearSelection();  
+        if (rbSearchLineal.isSelected()){
+            Integer N=modeloList1.size();
+            if (N<1) 
+            {    JOptionPane.showMessageDialog(this, "La lista se encuentra vacia",
+                                       "ERROR", JOptionPane.WARNING_MESSAGE); 
+                return;               
+            }
+            if (txtNombre.getText().isEmpty()) 
+            {   JOptionPane.showMessageDialog(this, "Debe consignar el valor que desea buscar",
+                                       "ERROR", JOptionPane.WARNING_MESSAGE); 
+                return;               
+            }                        
+            Persona result=ab.search(txtNombre.getText());
+            if (result==null) 
+                JOptionPane.showMessageDialog(this, "El valor buscado no se encontro en la lista",
+                                       "RESULTADO", JOptionPane.WARNING_MESSAGE);                
+            else{
+                JOptionPane.showMessageDialog(this, "El valor se encontro en la lista",
+                                       "RESULTADO", JOptionPane.WARNING_MESSAGE);                
+                ListaInicial.setSelectedValue(result.toString(),true);                
+                ListaInicial.requestFocusInWindow(); // Coloca el foco en la lista
+                ListaInicial.requestFocus(); // Enfoca la lista
+            }
+        }
         
+        if (rbSearchBinaria.isSelected()){
+            JOptionPane.showMessageDialog(this, "Algoritmo de Busqueda aun no implementado",
+                                       "ERROR", JOptionPane.WARNING_MESSAGE);  
+        }
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here:                
+        if (modeloList1.size()<1) 
+        {    JOptionPane.showMessageDialog(this, "La lista se encuentra vacia",
+                                   "ERROR", JOptionPane.WARNING_MESSAGE); 
+            return;               
+        }
+        if (txtNombre.getText().isEmpty()) 
+        {   JOptionPane.showMessageDialog(this, "Debe consignar el valor que desea eliminar",
+                                   "ERROR", JOptionPane.WARNING_MESSAGE); 
+            return;               
+        }      
+        Persona result=ab.search(txtNombre.getText());
+        if (result!=null){            
+            int opcion = JOptionPane.showConfirmDialog(null, "¿Esta seguro de eliminar el elemento de la Lista?", "Confirmación", JOptionPane.YES_NO_OPTION);
+            if (opcion == JOptionPane.YES_OPTION){
+                boolean eliminado=ab.delete(txtNombre.getText());
+                if (!eliminado) 
+                    JOptionPane.showMessageDialog(this, "El valor a eliminar no se encontro en la lista",
+                                           "RESULTADO", JOptionPane.WARNING_MESSAGE);                
+                else{
+                    modeloList1.removeElement(result.toString());
+                    JOptionPane.showMessageDialog(this, "El valor "+txtNombre.getText()+" se eliminó de la lista",
+                                           "RESULTADO", JOptionPane.WARNING_MESSAGE);                                
+                }
+            }            
+        }
+        
+        
     }//GEN-LAST:event_btnEliminarActionPerformed
     private void clearAll(){
         clearEntry();
