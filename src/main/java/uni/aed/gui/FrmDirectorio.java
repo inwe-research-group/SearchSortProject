@@ -535,8 +535,49 @@ public class FrmDirectorio extends javax.swing.JFrame {
             {   JOptionPane.showMessageDialog(this, "Debe consignar el valor que desea buscar",
                                        "ERROR", JOptionPane.WARNING_MESSAGE); 
                 return;               
-            }                        
-            Persona result=ab.search(txtNombre.getText());
+            }        
+            Object p=new Persona(txtNombre.getText(),0,'M');
+            int result=ab.search(p,"LINEAL");
+            if (result==-1) 
+                JOptionPane.showMessageDialog(this, "El valor buscado no se encontro en la lista",
+                                       "RESULTADO", JOptionPane.WARNING_MESSAGE);                
+            else{
+                JOptionPane.showMessageDialog(this, "El valor se encontro en la lista",
+                                       "RESULTADO", JOptionPane.WARNING_MESSAGE);                
+                ListaInicial.setSelectedIndex(result);
+                ListaInicial.requestFocusInWindow(); // Coloca el foco en la lista
+                ListaInicial.requestFocus(); // Enfoca la lista
+            }
+        }
+        
+        if (rbSearchBinaria.isSelected()){
+            Integer N=modeloList1.size();
+            if (N<1) 
+            {    JOptionPane.showMessageDialog(this, "La lista se encuentra vacia",
+                                       "ERROR", JOptionPane.WARNING_MESSAGE); 
+                return;               
+            }
+            if (txtNombre.getText().isEmpty()) 
+            {   JOptionPane.showMessageDialog(this, "Debe consignar el valor que desea buscar",
+                                       "ERROR", JOptionPane.WARNING_MESSAGE); 
+                return;               
+            }     
+            Object p=new Persona(txtNombre.getText(),0,'M');
+            int result=ab.search(p,"BINARIA");
+            if (result==-1) 
+                JOptionPane.showMessageDialog(this, "El valor buscado no se encontro en la lista",
+                                       "RESULTADO", JOptionPane.WARNING_MESSAGE);                
+            else{
+                JOptionPane.showMessageDialog(this, "El valor se encontro en la lista",
+                                       "RESULTADO", JOptionPane.WARNING_MESSAGE);                
+                ListaInicial.setSelectedIndex(result);
+                ListaInicial.requestFocusInWindow(); // Coloca el foco en la lista
+                ListaInicial.requestFocus(); // Enfoca la lista
+            }
+        }
+    }//GEN-LAST:event_btnBuscarActionPerformed
+    private void searchLineal(){
+        Persona result=ab.search(txtNombre.getText());
             if (result==null) 
                 JOptionPane.showMessageDialog(this, "El valor buscado no se encontro en la lista",
                                        "RESULTADO", JOptionPane.WARNING_MESSAGE);                
@@ -547,14 +588,7 @@ public class FrmDirectorio extends javax.swing.JFrame {
                 ListaInicial.requestFocusInWindow(); // Coloca el foco en la lista
                 ListaInicial.requestFocus(); // Enfoca la lista
             }
-        }
-        
-        if (rbSearchBinaria.isSelected()){
-            JOptionPane.showMessageDialog(this, "Algoritmo de Busqueda aun no implementado",
-                                       "ERROR", JOptionPane.WARNING_MESSAGE);  
-        }
-    }//GEN-LAST:event_btnBuscarActionPerformed
-
+    }
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:                
         if (modeloList1.size()<1) 

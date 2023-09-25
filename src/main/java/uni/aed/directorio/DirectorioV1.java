@@ -3,6 +3,7 @@ package uni.aed.directorio;
 import uni.aed.model.Persona;
 import uni.aed.ordenamiento.SortObject;
 import uni.aed.ordenamiento.SortObjectPerson;
+import uni.aed.search.SearchObject;
 
 public class DirectorioV1 implements Directorio{
     private static final int  DEFAULT_SIZE = 25;
@@ -161,5 +162,25 @@ public class DirectorioV1 implements Directorio{
         sortedList=o.HeapSort(sortedList);
         
         return sortedList;
+    }
+
+    @Override
+    public int search(Object searchValue,String algoritmo) {
+        Object[ ] searchList = new Persona[ count ];    
+        int result=NOT_FOUND;
+        //copiamos las referencias a la lista ordenada        
+        for (int i = 0; i < count; i++) {
+            searchList[i] = entry[i];
+        }
+        SearchObject s=new SearchObject();    
+        switch(algoritmo.toUpperCase()){
+            case "LINEAL"->{
+                result= s.Lineal(searchList, searchValue);
+            }
+            case "BINARIA"->{
+                result= s.Binaria(searchList, searchValue);
+            }
+        }
+        return result;
     }
 }
