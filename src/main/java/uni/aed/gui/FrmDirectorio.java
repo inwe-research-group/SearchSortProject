@@ -5,13 +5,11 @@
 package uni.aed.gui;
 
 import java.awt.event.KeyEvent;
-import java.util.Arrays;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import uni.aed.directorio.Directorio;
 import uni.aed.directorio.DirectorioV1;
 import uni.aed.model.Persona;
-import uni.aed.search.Search;
 
 /**
  *

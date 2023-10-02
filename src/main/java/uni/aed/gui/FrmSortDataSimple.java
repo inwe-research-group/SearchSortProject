@@ -1,5 +1,6 @@
 package uni.aed.gui;
 
+import java.awt.event.KeyEvent;
 import java.util.Arrays;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
@@ -83,6 +84,11 @@ public class FrmSortDataSimple extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setTitle("Algoritmos Sort && Search");
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                formKeyPressed(evt);
+            }
+        });
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Criterios"));
         jPanel1.setName("Criterios"); // NOI18N
@@ -294,8 +300,7 @@ public class FrmSortDataSimple extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
-                        .addComponent(lblValor)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(lblValor))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(txtValor, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
@@ -800,6 +805,13 @@ public class FrmSortDataSimple extends javax.swing.JFrame {
             modeloList1.remove(result); 
         }
     }//GEN-LAST:event_BtnDeleteActionPerformed
+
+    private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
+        // TODO add your handling code here:
+         if (evt.getKeyCode() == KeyEvent.VK_ESCAPE) {
+            this.dispose(); // Cierra el formulario
+         }
+    }//GEN-LAST:event_formKeyPressed
 
     /**
      * @param args the command line arguments

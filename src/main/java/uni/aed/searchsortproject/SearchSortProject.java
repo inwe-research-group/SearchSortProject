@@ -2,23 +2,15 @@ package uni.aed.searchsortproject;
 
 import uni.aed.directorio.Directorio;
 import uni.aed.directorio.DirectorioV1;
-import uni.aed.gui.FrmDirectorio;
-import uni.aed.gui.FrmPrincipal;
-import uni.aed.gui.FrmSortDataSimple;
+import uni.aed.gui.FrmAED;
 import uni.aed.model.Persona;
 import uni.aed.ordenamiento.SortObject;
 
 public class SearchSortProject {
 
-    public static void main(String[] args) {
-        //SortJFrame v1=new FrmSortDataSimple();
-        //FrmDirectorio v1=new FrmDirectorio();
-        FrmPrincipal v1=new FrmPrincipal();
-        v1.setVisible(true);
-        //Personas();
-        //Enteros();
-        //Cadenas();
-        
+    public static void main(String[] args) {        
+        FrmAED v=new FrmAED();
+        v.setVisible(true);          
     }
     
     private static void Enteros(){
@@ -80,6 +72,47 @@ public class SearchSortProject {
         Object Y[];
         SortObject ob = new SortObject();
         Y=ob.HeapSort(X);
+        
+        System.out.println("El Array ordenado es");
+        for(int i=0;i<Y.length;i++)
+            System.out.println("Y["+i+"]= " + Y[i].toString());
+    }
+    private static void TestPersonaOrihuela(){
+        Object p1,p2,p3,p4;        
+        Object X[]=new Persona[4];        
+        p1 = new Persona("Zamir",30,'M');
+        X[0]=p1;
+        p2 = new Persona("Juan",20,'M');
+        X[1]=p2;
+        p3 = new Persona("Beatriz",50,'F');
+        X[2]=p3;
+        p4 = new Persona("Ana",18,'F');
+        X[3]=p4;
+        
+        //X[0].setCompareAttribute(0);
+        Object Y[];
+        SortObjectOrihuela ob = new SortObjectOrihuela();
+        ob.iniciaDatos(X);
+        ob.heapSort();
+        Y=ob.getSortedArray();
+        
+        System.out.println("El Array ordenado es");
+        for(int i=0;i<Y.length;i++)
+            System.out.println("Y["+i+"]= " + Y[i].toString());
+    }
+    private static void TestIntegerOrihuela(){        
+        Object X[]=new Integer[4];                
+        X[0]=25;        
+        X[1]=7;        
+        X[2]=30;        
+        X[3]=1;
+        
+        //X[0].setCompareAttribute(0);
+        Object Y[];
+        SortObjectOrihuela ob = new SortObjectOrihuela();
+        ob.iniciaDatos(X);
+        ob.heapSort();
+        Y=ob.getSortedArray();
         
         System.out.println("El Array ordenado es");
         for(int i=0;i<Y.length;i++)
