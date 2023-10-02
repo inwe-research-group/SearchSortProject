@@ -1,6 +1,6 @@
-package uni.aed.linkedlist;
+package uni.aed.simplelinkedlist;
 
-public class ListaEnlazada {    
+public class SimpleLinkedList {    
     Nodo head;
 
     public void addFirst(int data) {
@@ -45,6 +45,10 @@ public class ListaEnlazada {
         if (current.next != null) {
             current.next = current.next.next;
         }
+    }
+    
+    public void clear() {
+        head = null; // Elimina todas las referencias, los nodos serán recolectados por el recolector de basura.
     }
 
     public void printList() {

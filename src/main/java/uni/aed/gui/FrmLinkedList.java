@@ -7,7 +7,8 @@ package uni.aed.gui;
 import java.awt.event.KeyEvent;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
-import uni.aed.linkedlist.ListaEnlazada;
+import uni.aed.simplelinkedlist.SimpleLinkedList;
+import uni.aed.doublelinkedlist.DoubleLinkedList;
 
 /**
  *
@@ -18,11 +19,13 @@ public class FrmLinkedList extends javax.swing.JFrame {
     private final DefaultListModel modeloList1 = new DefaultListModel();
     private final DefaultListModel modeloList2 = new DefaultListModel();     
     private final String CADENA_VACIA="";
-    private ListaEnlazada lista;
+    private SimpleLinkedList simpleLinkedList;
+    private DoubleLinkedList doubleLinkedList;
     
     public FrmLinkedList() {
         initComponents();
-        lista =new ListaEnlazada();
+        simpleLinkedList =new SimpleLinkedList();
+        doubleLinkedList=new DoubleLinkedList();
         ListaInicial.setModel(modeloList1);
         ListaOperaciones.setModel(modeloList2);
         txtValor.requestFocus();
@@ -38,6 +41,7 @@ public class FrmLinkedList extends javax.swing.JFrame {
     private void initComponents() {
 
         bgValorTipo = new javax.swing.ButtonGroup();
+        bgTipoAdd = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         txtValor = new javax.swing.JTextField();
         btnRegistrar = new javax.swing.JButton();
@@ -45,6 +49,12 @@ public class FrmLinkedList extends javax.swing.JFrame {
         btnImprimir = new javax.swing.JButton();
         rbUnicos = new javax.swing.JRadioButton();
         rbDuplicados = new javax.swing.JRadioButton();
+        lblTipoLista = new javax.swing.JLabel();
+        cbTipoLista = new javax.swing.JComboBox<>();
+        jPanel3 = new javax.swing.JPanel();
+        rbFirst = new javax.swing.JRadioButton();
+        rbLast = new javax.swing.JRadioButton();
+        btnLimpiar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         ListaInicial = new javax.swing.JList<>();
@@ -55,6 +65,11 @@ public class FrmLinkedList extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Criterios de Operaciones:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12))); // NOI18N
 
+        txtValor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtValorActionPerformed(evt);
+            }
+        });
         txtValor.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtValorKeyPressed(evt);
@@ -97,42 +112,108 @@ public class FrmLinkedList extends javax.swing.JFrame {
         bgValorTipo.add(rbDuplicados);
         rbDuplicados.setText("Permite Duplicados");
 
+        lblTipoLista.setText("Tipo de Lista Enlazada");
+
+        cbTipoLista.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Simple LinkedList", "Double LinkedList", "Circular LinkedList" }));
+
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Forma de Insercion:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 10))); // NOI18N
+
+        bgTipoAdd.add(rbFirst);
+        rbFirst.setText("First");
+
+        bgTipoAdd.add(rbLast);
+        rbLast.setSelected(true);
+        rbLast.setText("Last");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(rbLast, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(rbFirst, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(rbFirst)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(rbLast)
+                .addContainerGap(16, Short.MAX_VALUE))
+        );
+
+        btnLimpiar.setText("Limpiar");
+        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
                         .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnRegistrar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnEliminar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnImprimir))
+                        .addComponent(btnImprimir)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnLimpiar)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(179, 179, 179)
-                        .addComponent(rbUnicos, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(rbDuplicados, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(69, 69, 69))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(37, 37, 37)
+                                .addComponent(lblTipoLista, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cbTipoLista, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(rbUnicos, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(rbDuplicados, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(86, 86, 86)))
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rbUnicos)
-                    .addComponent(rbDuplicados))
-                .addGap(14, 14, 14)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblTipoLista)
+                            .addComponent(cbTipoLista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(rbUnicos)
+                            .addComponent(rbDuplicados)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnRegistrar)
                     .addComponent(btnEliminar)
-                    .addComponent(btnImprimir))
-                .addContainerGap(34, Short.MAX_VALUE))
+                    .addComponent(btnImprimir)
+                    .addComponent(btnRegistrar)
+                    .addComponent(btnLimpiar))
+                .addGap(21, 21, 21))
         );
 
         ListaInicial.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Lista Inicial", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12))); // NOI18N
@@ -149,16 +230,16 @@ public class FrmLinkedList extends javax.swing.JFrame {
                 .addGap(17, 17, 17)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(92, 92, 92)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(180, Short.MAX_VALUE))
+                .addComponent(jScrollPane2)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1))
+                    .addComponent(jScrollPane2)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE))
                 .addContainerGap(34, Short.MAX_VALUE))
         );
 
@@ -167,20 +248,20 @@ public class FrmLinkedList extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(45, Short.MAX_VALUE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addGap(14, 14, 14)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addGap(66, 66, 66))
         );
 
         pack();
@@ -196,19 +277,43 @@ public class FrmLinkedList extends javax.swing.JFrame {
         Registrar();
     }//GEN-LAST:event_btnRegistrarActionPerformed
     private void Registrar(){
+        if (txtValor.getText().trim().isEmpty() ) return;  
         if (rbUnicos.isSelected())                                            
             if (!modeloList1.contains(txtValor.getText()))                
                 modeloList1.addElement(txtValor.getText());
         if (rbDuplicados.isSelected())                    
-        {    JOptionPane.showMessageDialog(this, "Funcionalidad pendiente de implementacion",
+        {   JOptionPane.showMessageDialog(this, "Funcionalidad pendiente de implementacion",
                                        "WARNING", JOptionPane.WARNING_MESSAGE); 
-                return;  }
-        lista.addLast(Integer.parseInt(txtValor.getText()));
-        txtValor.setText("");        
+            return;  }
+        switch(cbTipoLista.getSelectedIndex()){  
+            case 0->{                
+                if (rbLast.isSelected())
+                    simpleLinkedList.addLast(Integer.parseInt(txtValor.getText()));
+                else
+                    simpleLinkedList.addFirst(Integer.parseInt(txtValor.getText()));                
+            }
+            case 1->{                
+                if (rbLast.isSelected())
+                    doubleLinkedList.addLast(Integer.parseInt(txtValor.getText()));
+                else
+                    doubleLinkedList.addFirst(Integer.parseInt(txtValor.getText()));
+                
+            }
+        }
+        txtValor.setText(CADENA_VACIA);                  
     }
     private void Imprimir(){
-        modeloList2.removeAllElements();        
-        modeloList2.addElement(lista.toString());
+        if (modeloList1.size()==0)                    
+        {   JOptionPane.showMessageDialog(this, "No es posible mostrar datos de una Lista vacia",
+                                               "WARNING", JOptionPane.WARNING_MESSAGE); 
+            return;  
+        }
+        modeloList2.removeAllElements();  
+        switch(cbTipoLista.getSelectedIndex()){  
+            case 0->{modeloList2.addElement(simpleLinkedList.toString());}
+            case 1->{modeloList2.addElement(doubleLinkedList.toString());}
+        }
+        
     }
     private void txtValorKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtValorKeyPressed
         // TODO add your handling code here:
@@ -234,6 +339,19 @@ public class FrmLinkedList extends javax.swing.JFrame {
         if(!numero)
             evt.consume();
     }//GEN-LAST:event_txtValorKeyTyped
+
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+        // TODO add your handling code here:
+        modeloList1.removeAllElements();    
+        modeloList2.removeAllElements();        
+        txtValor.setText(CADENA_VACIA);
+        simpleLinkedList.clear();
+        doubleLinkedList.clear();
+    }//GEN-LAST:event_btnLimpiarActionPerformed
+
+    private void txtValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtValorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -273,15 +391,22 @@ public class FrmLinkedList extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JList<String> ListaInicial;
     private javax.swing.JList<String> ListaOperaciones;
+    private javax.swing.ButtonGroup bgTipoAdd;
     private javax.swing.ButtonGroup bgValorTipo;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnImprimir;
+    private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnRegistrar;
+    private javax.swing.JComboBox<String> cbTipoLista;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lblTipoLista;
     private javax.swing.JRadioButton rbDuplicados;
+    private javax.swing.JRadioButton rbFirst;
+    private javax.swing.JRadioButton rbLast;
     private javax.swing.JRadioButton rbUnicos;
     private javax.swing.JTextField txtValor;
     // End of variables declaration//GEN-END:variables

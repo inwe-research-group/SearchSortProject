@@ -1,4 +1,4 @@
-package uni.aed.linkedlist;
+package uni.aed.simplelinkedlist;
 
 public class Nodo {
     int data;
