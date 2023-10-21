@@ -1,99 +1,166 @@
 package uni.aed.doublelinkedlist;
 
 public class DoubleLinkedList {
-    Nodo primero;
+    Nodo head;
     Nodo ultimo;
-
-    public DoubleLinkedList() {
-        this.primero = null;
-        this.ultimo = null;
-    }
-
-    public void addFirst(int valor) {
-        Nodo nuevoNodo = new Nodo(valor);
-        if (primero == null) {
-            primero = nuevoNodo;
-            ultimo = nuevoNodo;
-        } else {
-            nuevoNodo.setSiguiente(primero);
-            primero.setAnterior(nuevoNodo);
-            primero = nuevoNodo;
+    
+    public void addFirst(int data){
+        Nodo newNodo=new Nodo(data);
+        if(head==null){
+            head=newNodo;
+            ultimo=newNodo;
+        }else{
+            newNodo.next=head;
+            head.prev=newNodo;
+            head=newNodo;
         }
     }
-
-    public void addLast(int valor) {
-        Nodo nuevoNodo = new Nodo(valor);
-        if (ultimo == null) {
-            primero = nuevoNodo;
-            ultimo = nuevoNodo;
-        } else {
-            nuevoNodo.setAnterior(ultimo);
-            ultimo.setSiguiente(nuevoNodo);
-            ultimo = nuevoNodo;
+    public void addLast(int data){
+        Nodo newNodo=new Nodo(data);
+        if(ultimo==null){
+            head=newNodo;
+            ultimo=newNodo;            
+        }else{
+            newNodo.prev =ultimo;
+            ultimo.next=newNodo;
+            ultimo=newNodo;            
         }
     }
-
-    public void remove(int valor) {
-        Nodo actual = primero;
-        while (actual != null && actual.getValor() != valor) {
-            actual = actual.getSiguiente();
+    public void remove(int valor){
+        Nodo actual =head;
+        while(actual!=null && actual.data!=valor){
+            actual=actual.next;
         }
-        if (actual != null) {
-            if (actual == primero) {
-                primero = actual.getSiguiente();
-                if (primero != null) {
-                    primero.setAnterior(null);
-                } else {
-                    ultimo = null;
-                }
-            } else if (actual == ultimo) {
-                ultimo = actual.getAnterior();
-                ultimo.setSiguiente(null);
-            } else {
-                actual.getAnterior().setSiguiente(actual.getSiguiente());
-                actual.getSiguiente().setAnterior(actual.getAnterior());
+        if(actual!=null){
+            if(actual==head){
+                head=head.next;
+                if(head!=null)
+                    head.prev=null;
+                else
+                    ultimo=null;                
+            }else if(actual==ultimo){
+                ultimo=actual.prev;
+                ultimo.next=null;
+            }else{
+                actual.prev.next=actual.next;
+                actual.next.prev=actual.prev;
             }
         }
     }
     
-    public void clear() {
-        primero = null; // Elimina todas las referencias, los nodos serán recolectados por el recolector de basura.
-        ultimo = null;
+    public void clear(){
+        head=null;
+        ultimo=null;
     }
     
-    public void printList() {
-        Nodo actual = primero;
-        while (actual != null) {
-            System.out.print(actual.getValor() + " ");
-            actual = actual.getSiguiente();
+    public Nodo get(int index) {
+        if (index < 0) {
+            return null;
         }
-        System.out.println();
+
+        Nodo temp = head;
+        for (int i = 0; i < index; i++) {
+            if (temp == null) {
+                return null;
+            }
+            temp = temp.next;
+        }
+
+        return temp;
     }
-    public void printList1(){
-        Nodo actual = primero;
-        while (actual != null) {
-            if (actual.getAnterior()==null)                
-                System.out.println("nodo: "+actual.getValor() + " nodo anterior: Ninguno, nodo siguiente: "+actual.getSiguiente().getValor());
-            else if(actual.getSiguiente()==null)
-                System.out.println("nodo: "+actual.getValor() + " nodo anterior: "+actual.getAnterior().getValor()+" nodo siguiente: fin");
-            else    
-                System.out.println("nodo: "+actual.getValor() + " nodo anterior: "+actual.getAnterior().getValor()+" nodo siguiente: "+actual.getSiguiente().getValor());
-            actual = actual.getSiguiente();
+    
+    public int size() {
+        int contador = 0;
+        Nodo temp = head;
+        while (temp != null) {
+            contador++;
+            temp = temp.next;
+        }
+        return contador;
+    }
+    
+    public void set(int index, Nodo nodo) {
+        if (index < 0) {
+            return;
+        }
+
+        Nodo temp = head;
+        for (int i = 0; i < index; i++) {
+            if (temp == null) {
+                return;
+            }
+            temp = temp.next;
+        }
+
+        if (temp != null) {
+            temp.data = nodo.data;
         }
     }
+
+    
     public String toString(){
-        Nodo actual = primero;
+        Nodo actual=head;
         String lista="";
-        while (actual != null) {
-            if (actual.getAnterior()==null)
-                lista="null <-"+actual.getValor() + "->"+actual.getSiguiente().getValor();                
-            else if(actual.getSiguiente()==null)
-                lista=lista + "||"+actual.getAnterior().getValor()+"<-"+actual.getValor() + "-> null";                
+        while(actual!=null){
+            if(actual.prev==null)
+                lista="null<-"+actual.data+"->"+actual.next.data;
+            else if(actual.next==null)
+                lista=lista+"||"+actual.prev.data+"<-"+
+                        actual.data+"->null";
             else
-                lista=lista + "||"+actual.getAnterior().getValor()+"<-"+actual.getValor() + "->"+actual.getSiguiente().getValor();
-            actual = actual.getSiguiente();
+                lista=lista+"||"+actual.prev.data+"<-"+actual.data+"->"+
+                        actual.next.data;
+            actual=actual.next;
         }
         return lista;
     }
+    
+    public void restriccion() {        
+        int currentIndex = size() - 1;        
+        while (currentIndex > 0) {
+            int parentIndex = (currentIndex - 1) / 2;
+            
+            if (get(currentIndex).data <= get(parentIndex).data)
+                break;            
+            swap(currentIndex, parentIndex);
+            currentIndex = parentIndex;
+        }
+    }
+    
+    public void sort() {
+        restriccion();
+        int n = size();
+        
+        for (int i = n / 2 - 1; i >= 0; i--)
+            heapify(n, i);
+        
+        for (int i = n - 1; i >= 0; i--) {
+            swap(0, i);
+            heapify(i, 0);
+        }
+    }
+    
+    private void heapify(int n, int i) {
+        int largest = i;
+        int leftChild = 2 * i + 1;
+        int rightChild = 2 * i + 2;
+        
+        if (leftChild < n && get(leftChild).data > get(largest).data)
+            largest = leftChild;
+        
+        if (rightChild < n && get(rightChild).data > get(largest).data)
+            largest = rightChild;
+        
+        if (largest != i) {
+            swap(i, largest);
+            heapify(n, largest);
+        }
+    }
+    
+    private void swap(int i, int j) {        
+        Nodo temp = new Nodo (get(i).data);   
+        set(i, get(j));
+        set(j, temp);
+    }
+    
 }
-
