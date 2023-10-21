@@ -445,9 +445,9 @@ public class FrmDirectorio extends javax.swing.JFrame {
         switch(cbAlgoritmo.getSelectedItem().toString().toUpperCase()){
             case "HEAPSORT"->{                
                 if (rbNombre.isSelected())
-                    sortedlist = ab.sort1(Persona.NAME); 
+                    sortedlist = ab.sort(Persona.NAME); 
                 else
-                    sortedlist = ab.sort1(Persona.AGE); 
+                    sortedlist = ab.sort(Persona.AGE); 
                         
             }
             default->{

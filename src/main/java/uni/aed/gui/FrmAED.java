@@ -115,7 +115,7 @@ public class FrmAED extends javax.swing.JFrame {
 
     private void mSortSearchNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mSortSearchNumberActionPerformed
         // TODO add your handling code here:
-        FrmSortDataSimple v=new FrmSortDataSimple();        
+        FrmDataSimple v=new FrmDataSimple();        
         v.setVisible(true);         
     }//GEN-LAST:event_mSortSearchNumberActionPerformed
 

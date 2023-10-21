@@ -8,7 +8,7 @@ import java.awt.event.KeyEvent;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import uni.aed.simplelinkedlist.SimpleLinkedList;
-import uni.aed.doublelinkedlist.DoubleLinkedList;
+import uni.aed.doublelinkedlist1.DoubleLinkedList;
 
 /**
  *

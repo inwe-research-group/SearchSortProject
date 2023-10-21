@@ -112,11 +112,6 @@ public class DirectorioV2 implements Directorio{
     }   
 
     @Override
-    public Object[] sort1(int attribute) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }   
-
-    @Override
     public int search(Object searchValue,String algoritmo) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }

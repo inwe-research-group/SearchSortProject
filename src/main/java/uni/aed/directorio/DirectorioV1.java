@@ -104,26 +104,33 @@ public class DirectorioV1 implements Directorio{
         return sortedList;
     }
 
-    public Persona[ ] sort ( int attribute,String algoritmo ) {
+    public Persona[] sort ( int attribute,String algoritmo ) {
         if (!(attribute == Persona.NAME || attribute == Persona.AGE) ) {
             throw new IllegalArgumentException( );
         }  
-        Persona[ ] sortedList = new Persona[ count ];        
+        Persona[] sortedList = new Persona[ count ];        
         //copiamos las referencias a la lista ordenada
-        for (int i = 0; i < count; i++) {
-            sortedList[i] = entry[i];
-        }        
+        entry[0].setCompareAttribute(attribute);
+        for (int i = 0; i < count; i++)
+            sortedList[i] = entry[i];        
         SortObjectPerson o=new SortObjectPerson(); 
         switch(algoritmo.toUpperCase()){
             case "BURBUJA"->{//burbuja                
-                o.Burbuja(sortedList, attribute);
+                o.Burbuja(sortedList, attribute);                
             }
             case "INSERCION"->{
-                o.Insercion(sortedList, attribute);
+                o.Insercion(sortedList, attribute);                
             }
-        }
+            case "HEAPSORT"->{
+                Object[ ] sortedObjectList;
+                sortedObjectList=(Object[])sortedList;                              
+                SortObject sortObject=new SortObject();                 
+                sortedList=(Persona[])sortObject.HeapSort(sortedObjectList);                
+            }
+        }//end switch
         return sortedList;
     }
+    
     private void enlarge( )
     {        
         int newLength = (int) (1.5 * entry.length);
@@ -146,23 +153,6 @@ public class DirectorioV1 implements Directorio{
         }
         return loc;
     }   
-
-    @Override
-    public Object[] sort1(int attribute) {
-         if (!(attribute == Persona.NAME || attribute == Persona.AGE) ) {
-            throw new IllegalArgumentException( );
-        }  
-        Object[ ] sortedList = new Persona[ count ];                    
-        //copiamos las referencias a la lista ordenada
-        entry[0].setCompareAttribute(attribute);
-        for (int i = 0; i < count; i++) {
-            sortedList[i] = entry[i];
-        }
-        SortObject o=new SortObject();                 
-        sortedList=o.HeapSort(sortedList);
-        
-        return sortedList;
-    }
 
     @Override
     public int search(Object searchValue,String algoritmo) {
