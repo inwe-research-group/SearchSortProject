@@ -50,6 +50,32 @@ public class SimpleLinkedList {
     public void clear() {
         head = null; // Elimina todas las referencias, los nodos serán recolectados por el recolector de basura.
     }
+    
+    public int size() {
+        int contador = 0;
+        Nodo temp = head;
+        while (temp != null) {
+            contador++;
+            temp = temp.next;
+        }
+        return contador;
+    }
+    
+     public Nodo get(int index) {
+        if (index < 0) {
+            return null;
+        }
+
+        Nodo temp = head;
+        for (int i = 0; i < index; i++) {
+            if (temp == null) {
+                return null;
+            }
+            temp = temp.next;
+        }
+
+        return temp;
+    }
 
     public void printList() {
         Nodo current = head;

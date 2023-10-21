@@ -46,7 +46,7 @@ public class SearchSortProject {
         p3 = new Persona("Beatriz",50,'F');
         ab.add(p3);
         
-        Y=ab.sort1(0);
+        Y=ab.sort(0);
         System.out.println("El Array ordenado es");
         for(int i=0;i<Y.length;i++)
             System.out.println("Y["+i+"]= " + Y[i].toString());
