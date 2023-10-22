@@ -172,6 +172,19 @@ public class LinkedListTDA<E> implements ListTDA<E>{
     public int size() {
         return count;
     }
+    
+    @Override
+    public String toString() {
+        String result="";
+        IteratorTDA it=new Iterador(head);
+        while(it.hasNext()){            
+            if (result.length()==0)
+                result="" + (String)it.next();
+            else
+                result=result  + "->" + (String)it.next();
+        }
+        return result;
+    }
 
     @Override
     public void imprimir() {
