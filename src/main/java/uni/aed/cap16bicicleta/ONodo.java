@@ -1,4 +1,4 @@
-package edu.aed.cap16bicicleta;
+package uni.aed.cap16bicicleta;
 
 public class ONodo {
     Object data;

@@ -1,4 +1,4 @@
-package edu.aed.cap16bicicleta;
+package uni.aed.cap16bicicleta;
 
 import uni.aed.model.Bicicleta;
 import java.util.Scanner;

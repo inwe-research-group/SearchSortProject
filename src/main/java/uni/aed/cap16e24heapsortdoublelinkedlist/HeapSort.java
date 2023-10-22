@@ -1,4 +1,4 @@
-package edu.aed.cap16e24heapsortdoublelinkedlist;
+package uni.aed.cap16e24heapsortdoublelinkedlist;
 import java.util.LinkedList;
 public class HeapSort {
     
